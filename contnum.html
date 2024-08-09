@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label id="containLabel">0</label>
+    <div class="contain">
+        <button  class="btn" id="add">Increase</button>
+        <button  class="btn" id="reset">Reset</button>
+        <button  class="btn" id="sub">Decrease</button>
+    </div>
+<style>
+#containLabel{
+    display: block;
+    text-align: center;
+    font-size: 10em;
+    font-family: Verdana;
+}
+.contain{
+    text-align: center;
+}
+.btn{
+    font-size: 1.5em;
+    color: white;
+    background-color: rgb(40, 97, 243);
+    border-radius: 10px;
+    transition: background-color 0.25s;
+    cursor: pointer;
+    
+}
+.btn:hover{
+    background-color: rgb(64, 117, 210);
+}
+
+</style>
+<script>
+    const Increase=document.getElementById("add")
+    const decrease=document.getElementById("sub")
+    const Reset=document.getElementById("reset")
+    const numbers = document.getElementById("containLabel")
+    let count=0;
+    Increase.onclick = function(){
+        count++;
+        numbers.textContent = count;
+    }
+    Reset.onclick = function(){
+        count=0;
+        numbers.textContent = count;
+    }
+    decrease.onclick = function(){
+        count--;
+        numbers.textContent = count;
+    }
+</script>
+</body>
+</html>

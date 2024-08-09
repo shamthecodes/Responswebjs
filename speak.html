@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My speak</title>
+</head>
+<body>
+<h1>Text to speak</h1>  
+<textarea translate="yes" id="area" name="Text" id="" cols="100" rows="10"></textarea><br><br>
+
+<button id="but" onclick="speakTalk()">speak</button>
+<script>
+    function speakTalk(){
+        let tal=window.speechSynthesis;
+        let voice=new SpeechSynthesisUtterance(`${area.value}`)
+        tal.speak(voice);
+    }   
+</script>
+</body>
+</html>

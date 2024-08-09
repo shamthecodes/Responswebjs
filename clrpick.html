@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg</title>
+</head>
+<body>
+   <div class="boxClass" id="box">
+    <p id="content">
+        Sample Text
+    </p>
+   </div><br>
+   <div class="form">
+        <label>Width</label>
+        <input type="number"  id="Width">
+        <p class="err" id="wdtErr">Please Enter width above 100px</p>
+        <br>
+
+        <label>Height</label>
+        <input type="number" id="Height">
+        <p class="err" id="hitErr">Please Enter Height above 100px</p>
+        <br>
+
+        <label>Text</label>
+        <input type="text" id="Txt">
+        <p class="err" id="txtErr">Please Enter the Text</p>
+        <br>
+
+        <label>Color</label>
+        <input type="color" id="Clr"><br>
+        
+        <label>Text color</label>
+        <input type="color" id="txtClr"><br>
+   </div><br>
+   <button onclick="manipulate()"> Apply </button>
+<style>
+    .boxClass{
+        background-color: black;
+        position: relative;
+        height: 200px;
+        width: 200px;
+    }
+    .boxClass p{
+        color: #fff;
+        position: absolute;
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .form label{
+        display: inline-block;
+        width: 100px;
+    }
+    .err{
+        padding-left: 103px;
+        color: red;
+        display: none;
+    }
+    .inpErr{
+        border-color: red;
+    }
+</style>
+<script>
+    function manipulate(){
+        // change width
+        var wdt=document.getElementById("Width").value;
+        // var wdtPx=wdt+"px"
+        if(wdt < 100) {
+            document.getElementById("wdtErr").style.display="block"
+            document.getElementById("Width").classList.add("inpErr")
+             // Exit function if height is invalid
+        }else{
+            document.getElementById("box").style.width=wdt+"px";
+            document.getElementById("wdtErr").style.display="none"
+            document.getElementById("Width").classList.remove("inpErr")
+            
+        }
+        //change heigth
+        var hit=document.getElementById("Height").value;
+       
+        if(hit < 100) {
+            document.getElementById("hitErr").style.display="block"
+            document.getElementById("Height").classList.add("inpErr")
+             // Exit function if height is invalid
+        }else{
+            document.getElementById("box").style.height=hit+"px";
+            document.getElementById("hitErr").style.display="none"
+            document.getElementById("Height").classList.remove("inpErr")
+        }
+
+        //change Text
+        var txt=document.getElementById("Txt").value;
+        document.getElementById("content").innerHTML=txt;  
+        if(txt==""){
+            document.getElementById("txtErr").style.display="block"
+            document.getElementById("Txt").classList.add("inpErr")
+        }else{
+            document.getElementById("txtErr").style.display="none"
+            document.getElementById("Txt").classList.remove("inpErr")
+        }
+        // change color
+        var col=document.getElementById("Clr").value;
+        document.getElementById("box").style.backgroundColor=col;
+        // change text color
+        var txtcol=document.getElementById("txtClr").value;
+        document.getElementById("content").style.color=txtcol;
+    }
+</script>
+</body>
+</html>
